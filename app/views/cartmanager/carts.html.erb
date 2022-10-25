@@ -1,0 +1,13 @@
+<h2>カート</h2>
+<% tortal=0 %>
+<% @incart.each do |i| %>
+    <% p=Product.find(i.product_id) %>
+    <% price=p.price*i.quantitiy  %>
+    <% tortal+=price %>
+    <div>
+        <%= p.name %><br>単価：<%= p.price %> 数量：<%= i.quantitiy %> 価格：<%= price %>
+        <%= link_to '削除', "/#{i.id}/deletefromcart" %>
+    </div>
+<% end %>
+合計金額：<%= tortal %>
+<%= link_to '戻る', root_path %>

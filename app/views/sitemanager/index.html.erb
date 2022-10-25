@@ -1,0 +1,16 @@
+<% if flash[:notice] %>
+    <%= flash[:notice] %>
+<% end %>
+
+<ul class="items">
+    <% @items.each do |i| %>
+    <li>
+        <%= i.name %> <%= i.price %> <%= link_to 'カートに追加', "/#{i.id}/addcart" %> <%= link_to '削除', "/#{i.id}/delete" %>
+    </li>
+    <% end %>
+</ul>
+
+<div class="links">
+    <div><%= link_to '商品を追加する', "/addproduct" %></div>
+    <div><%= link_to 'カートを見る', "/carts" %></div>
+</div>
